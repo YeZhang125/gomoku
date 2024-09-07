@@ -1,0 +1,5 @@
+h 8
+Emilia 5
+Iago 2
+Desdemona 2
+Cassio 1

@@ -1,0 +1,62 @@
+'''
+Did you attempt to make your computer player very smart -- i.e., do something more clever than just pick a random legal move?
+-Yes, We set up three functions to control the way AI moves, namely check_human_move, check_ai_move and make_random_move. 
+check_human_move, check_ai_move calculates the position where AI and humans are most likely to win. 
+By predicting the position where humans are most likely to win, the AI ​​will make this move, 
+thereby blocking the possibility of humans winning. 
+If both sides have no chance of winning, the AI ​​will make a random move.
+We use the get best move function to control the current situation whether ai takes the position where it is most likely to win or blocks human chess pieces.
+
+If so, were you able to accomplish this? Is your computer player as smart as you would like?
+-Yes, I have accomplished with four functions in AI class. My computer player plays as smart as you would like.
+It will predict human move and block human based on predictions, 
+and it will make its own move when it is the one that is about to win the game.
+
+
+How did you determine which piece to play next? Tell us about your “pick next move” algorithm
+-"pick next move" algorithm is implemented in the get_best_move method of the AI class. 
+
+Checking for AI Win (check_ai_win):
+The AI first checks if it can win on the next move. It iterates over all empty intersections on the game board.
+For each empty intersection, it temporarily places a white stone (AI's move) and checks if this move results in a win using the check_win method.
+If a winning move is found, the AI immediately returns that move.
+
+Checking for Human Win (check_human_win):
+If there is no winning move for the AI, it checks if the human player (black stones) is about to win on their next move.
+Similar to the AI win check, it iterates over all empty intersections, temporarily places a black stone (human's move), and checks if it leads to a win.
+If a winning move for the human is found, the AI returns that move to block the human.
+
+Random Move (make_random_move):
+If neither the AI nor the human is about to win, the AI resorts to making a random move.
+It selects a random empty intersection from the available options using the random.choice function.
+
+Decision in get_best_move:
+The get_best_move method first checks for a winning move for the AI (ai_mv). If found, it returns that move.
+If there is no AI winning move, it checks for a move to block the human (hm_mv). If found, it returns that move.
+If neither winning move nor blocking move is found, it makes a random move.
+
+In summary, the algorithm prioritizes winning moves for the AI. If no winning moves are available, it checks for moves to block the opponent. If neither winning nor blocking moves are present, it resorts to making a random move. This approach balances offense (trying to win) and defense (preventing the opponent from winning).
+
+
+How often did your computer program beat you, or your friends, or whoever tested it out for you?
+-I tested this program.
+The winning or losing rate between AI and me in playing chess is about 40%/60%.
+
+
+How easy would it be to make the difficulty level adjustable?
+-Introduce an element of randomness in the AI's decision-making process. 
+For lower difficulty levels, the AI might make more random or suboptimal moves.
+As the difficulty level increases, reduce the randomness and make the AI more focused on strategic plays.
+For example, Easy difficulty: Make a random move; 
+Moderate difficulty: Consider blocking, but with some randomness;
+Advanced difficulty: Prioritize blocking and winning moves.
+
+
+How would you improve it in the future?
+-Improving an AI algorithm involves refining its decision-making process to make more strategic and effective choices. 
+In the Gomoku class check_win function, AI will make a move to block humans when black chess are more than 3-in-a-row sequence,
+we can make blocking more reasonable.
+Also, currently, AI will only try to make a move to win when it has a 4-in-a-row sequence.
+We can improve that when AI has a 3-in-a-row sequence, it can make a strategic move to win.
+
+'''
